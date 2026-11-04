@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+background: #071426;
+color: white;
+font-family: Arial, sans-serif;
+}
+
+.app {
+max-width: 500px;
+margin: auto;
+padding: 20px;
+}
+
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 25px;
+}
+
+.logo {
+font-size: 19px;
+font-weight: bold;
+color: #42baff;
+}
+
+.online {
+font-size: 11px;
+background: #102b42;
+padding: 8px;
+border-radius: 20px;
+}
+
+.hero {
+background: linear-gradient(135deg, #087bd8, #003b82);
+padding: 25px;
+border-radius: 20px;
+margin-bottom: 25px;
+box-shadow: 0 5px 25px #087bd855;
+}
+
+.hero h1 {
+font-size: 24px;
+margin-bottom: 10px;
+}
+
+.hero p {
+font-size: 13px;
+color: #d7edff;
+}
+
+.hero-icon {
+font-size: 55px;
+text-align: right;
+}
+
+h2 {
+font-size: 19px;
+margin-bottom: 18px;
+}
+
+.packages {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 12px;
+}
+
+.package {
+background: #10243a;
+border: 2px solid #1d3e5c;
+border-radius: 15px;
+padding: 17px 10px;
+text-align: center;
+cursor: pointer;
+transition: 0.2s;
+}
+
+.package.selected {
+border-color: #32aaff;
+background: #123d62;
+box-shadow: 0 0 15px #168cff55;
+}
+
+.package .uc {
+color: #50bdff;
+font-size: 21px;
+font-weight: bold;
+}
+
+.package .price {
+margin-top: 9px;
+font-size: 14px;
+font-weight: bold;
+}
+
+#continueBtn {
+width: 100%;
+padding: 17px;
+margin-top: 25px;
+border: none;
+border-radius: 14px;
+background: linear-gradient(90deg, #087bd8, #31baff);
+color: white;
+font-size: 16px;
+font-weight: bold;
+}
+
+#continueBtn:disabled {
+opacity: 0.4;
+}
+
+footer {
+text-align: center;
+margin-top: 30px;
+color: #7192ad;
+font-size: 12px;
+line-height: 25px;
+}
