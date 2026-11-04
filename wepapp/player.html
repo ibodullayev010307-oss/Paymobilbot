@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUBG ma'lumotlari - PayMobile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <header>
+        <div class="logo">💎 PAYMOBILE UC</div>
+        <div class="online">🟢 24/7</div>
+    </header>
+
+    <section class="hero">
+        <h1>🎮 PUBG MA'LUMOTLARI</h1>
+        <p>UC yuborish uchun ma'lumotlaringizni kiriting.</p>
+    </section>
+
+    <h2>📦 Tanlangan paket</h2>
+
+    <div class="package">
+        <div class="uc" id="ucAmount">💎 UC</div>
+        <div class="price" id="ucPrice"></div>
+    </div>
+
+    <h2 style="margin-top:25px;">👤 O‘yin ma'lumotlari</h2>
+
+    <input
+        type="text"
+        id="pubgId"
+        placeholder="PUBG Player ID"
+        inputmode="numeric"
+        style="width:100%;padding:16px;margin-bottom:15px;border-radius:12px;border:2px solid #1d3e5c;background:#10243a;color:white;"
+    >
+
+    <input
+        type="text"
+        id="nickname"
+        placeholder="PUBG Nickname"
+        style="width:100%;padding:16px;margin-bottom:15px;border-radius:12px;border:2px solid #1d3e5c;background:#10243a;color:white;"
+    >
+
+    <p id="error" style="color:#ff5555;margin-top:10px;"></p>
+
+    <button id="confirmBtn" style="width:100%;padding:17px;border:0;border-radius:14px;background:linear-gradient(90deg,#087bd8,#31baff);color:white;font-weight:bold;font-size:16px;margin-top:20px;">
+        TASDIQLASH →
+    </button>
+
+</div>
+
+<script>
+const selectedPackage = JSON.parse(
+    localStorage.getItem("selectedPackage")
+);
+
+if (!selectedPackage) {
+    window.location.href = "index.html";
+}
+
+document.getElementById("ucAmount").textContent =
+    "💎 " + selectedPackage.uc.toLocaleString("uz-UZ") + " UC";
+
+document.getElementById("ucPrice").textContent =
+    selectedPackage.price.toLocaleString("uz-UZ") + " so'm";
+
+document.getElementById("confirmBtn").onclick = function() {
+
+    const pubgId = document.getElementById("pubgId").value.trim();
+    const nickname = document.getElementById("nickname").value.trim();
+    const error = document.getElementById("error");
+
+    if (!/^\d{5,20}$/.test(pubgId)) {
+        error.textContent = "PUBG ID raqamini to‘g‘ri kiriting!";
+        return;
+    }
+
+    if (nickname.length < 2) {
+        error.textContent = "Nickname kiriting!";
+        return;
+    }
+
+    localStorage.setItem("pubgId", pubgId);
+    localStorage.setItem("nickname", nickname);
+
+    window.location.href = "payment.html";
+};
+</script>
+
+</body>
+</html>
